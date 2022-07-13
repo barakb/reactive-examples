@@ -1,0 +1,54 @@
+type Query{
+    selfService(size: Int): [SelfService]
+    service(size: Int): [Service]
+    recentPosts(count: Int, offset: Int): [Post]!
+    authorsByName(name: String!, count: Int) : [Author]!
+    accounts(serviceId: String!, limit: Int): [Account]!
+    accountFromElastic(serviceId: String!, accountId: String!): String
+    brokenAccounts(serviceId: String!, limit: Int): [Account]!
+
+}
+
+type Mutation {
+    writePost(title: String!, text: String!, category: String) : Post!
+    s3(serviceId: String!): [String]!
+    agg(serviceId: String!): String!
+    all(serviceIds: [String]!): String!
+}
+
+type Account{
+    id: ID!
+    serviceId: String!
+    name: String!
+    displayName: String
+    dbId: [String]!
+}
+
+type Service {
+    serviceId: String!
+    serviceName: String
+}
+
+type SelfService {
+    serviceId : String!
+    creationDate : String
+    status: String
+}
+
+type Post {
+    id: ID!
+    title: String!
+    text: String!
+    category: String
+    author: Author!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    thumbnail: String
+    posts: [Post]!
+}
+
+
+
