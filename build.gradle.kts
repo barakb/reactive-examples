@@ -24,7 +24,7 @@ dependencies {
     implementation("io.projectreactor.addons:reactor-extra")
     implementation("io.projectreactor:reactor-core")
     implementation("io.projectreactor:reactor-tools")
-    implementation("io.github.resilience4j:resilience4j-bulkhead:1.7.1")
+    implementation("io.github.resilience4j:resilience4j-bulkhead:2.4.0")
     implementation("io.github.resilience4j:resilience4j-reactor:1.7.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework:spring-webflux")
